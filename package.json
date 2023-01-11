@@ -1,13 +1,25 @@
 {
   "name": "redux-state-tree",
   "version": "1.0.0",
-  "description": "",
+  "description": "This package provides a different and more manegable way to deal with a redux store by using a tree structure.",
   "main": "./build/index.js",
   "scripts": {
     "build": "webpack"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "javascript",
+    "redux",
+    "tree",
+    "store",
+    "state",
+    "slice",
+    "reducer"
+  ],
+  "author": "Martí Serra",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/martiserra99/redux-state-tree"
+  },
   "license": "MIT",
   "peerDependencies": {
     "@reduxjs/toolkit": "^1.9.1"
