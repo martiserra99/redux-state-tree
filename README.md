@@ -135,30 +135,41 @@ export default TextButton;
 ```
 
 ```css
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 .textButton {
-  font-family: Verdana;
+  font-family: "Roboto", sans-serif;
   display: flex;
-  align-items: center;
   gap: 20px;
   margin: 20px;
   text-align: center;
 }
 
 .textButton span {
+  display: flex;
+  flex-basis: 100px;
+  align-items: center;
+  justify-content: center;
   flex-grow: 1;
   font-size: 16px;
+  border: 1px solid #111;
+  border-radius: 5px;
 }
 
 .textButton button {
+  flex-basis: 100px;
   flex-grow: 1;
   font-size: 16px;
   color: white;
-  background-color: #18314f;
+  background-color: #111;
   border: none;
   padding: 10px 20px;
   font-size: inherit;
   font-family: inherit;
   border-radius: 5px;
+  width: auto;
+  max-width: auto;
+  min-width: auto;
   cursor: pointer;
 }
 ```
@@ -430,7 +441,7 @@ In case that there is an error it can be managed like this:
 const aState = createState({
   node: createNode(initialState, {
     // ...
-    increaseAsyncRejected(state, action) {
+    incrementAsyncRejected(state, action) {
       console.log(action.payload);
     },
   }),
@@ -438,13 +449,16 @@ const aState = createState({
     increaseByAmount: (amount) => amount,
   },
   thunks: {
-    increaseAsync: (amount) => {
+    // ...
+    incrementAsync: () => {
       return async (dispatch, getState) => {
-        throw "There was an error";
+        throw { message: "There was an error" };
       };
     },
   },
 });
+
+The data of the error has to be serializable so we cannot use an instance of Error.
 
 // ...
 ```
