@@ -1,6 +1,6 @@
 {
   "name": "redux-state-tree",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This package provides a different and more manageable way to deal with a redux store by using a tree structure.",
   "main": "./build/index.js",
   "scripts": {
